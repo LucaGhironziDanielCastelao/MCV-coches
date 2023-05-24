@@ -41,20 +41,26 @@ public class Menu {
     if(!found) System.out.println("\nCar " + name + " not found.");
   }
 
+  public void displayCars() {
+    if(cars.isEmpty()) System.out.println("No cars to display.");
+    else {
+      System.out.println("Cars\nName\tSpeed(km/h)");
+      for(Car car : cars) System.out.println(car.getName() + "\t" + car.getSpeed());
+    }
+    System.out.println();
+  }
+  public void displayOptions() {
+    System.out.println("1 - New car.");
+    System.out.println("2 - Increase car speed.");
+    System.out.println("3 - Decrease car speed.");
+  }
+  
   public Menu() {
     while(true) {
-      if(cars.isEmpty()) System.out.println("No cars to display.");
-      else {
-        System.out.println("Cars\nName\tSpeed(km/h)");
-        for(Car car : cars) System.out.println(car.getName() + "\t" + car.getSpeed());
-      }
-      System.out.println();
-
-      System.out.println("1 - New car.");
-      System.out.println("2 - Increase car speed.");
-      System.out.println("3 - Decrease car speed.");
+      displayCars()
+      displayOptions();
+      
       System.out.print("Select a number for a command: ");
-
       String input = null;
       do {
         input = scanner.nextLine();
